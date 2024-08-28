@@ -11,6 +11,18 @@ mkdir Progects
 cd Progects
 git clone git@github.com:Hissul/PHPLesson.git
 
+<!-- удаление старого .git -->
+sudo rm -r .git
+
+<!-- перемещение нового .git в корневую папку  -->
+mv LessonPHP/.git/.
+
+<!-- удаление ненужной папки -->
+rmdir LessonPHP
+
+<!--  -->
+cat ~/.ssh/id_rsa.pub
+
 
 chmod +x docker-entrypoint.sh
 ls -la docker-entrypoint.sh
@@ -39,6 +51,7 @@ git push origin base
 
 docker ps - список контейнеров
 docker exec -it lesson_20240710_app bash - в контейнер
+
 
 echo "Hello world!" >  newFile.txt - создаем файл в контейнере
 
