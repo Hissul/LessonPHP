@@ -19,10 +19,11 @@
     <nav class="page-navbar" data-spy="affix" data-offset-top="10">
         <ul class="nav-navbar container">
 
+        @if(isset($menu))
             @foreach($menu as $item)
                 <li class="nav-item"><a href="{{$item['link']}}" class="nav-link">{{$item['text']}}</a></li>             
             @endforeach
-
+        @endif
             <li class="nav-item"><a href="#" class="nav-link">Explore</a></li>
             <li class="nav-item"><a href="#" class="nav-link"><img src="assets/imgs/placeholder.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, weber Landing page"></a></li>
             <li class="nav-item"><a href="#" class="nav-link">Journal</a></li>
