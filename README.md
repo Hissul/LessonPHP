@@ -62,6 +62,14 @@ env | grep DATABASE - в контейнере (поиск)
 
 
 
+php artisan  - в контейнере ( создаем новый контролер)
+php artisan make:controller - создаем новый контролер
+
+
+psql -Udb_user app - захоодим в базу (в терминале)
+
+
+
 
 
 

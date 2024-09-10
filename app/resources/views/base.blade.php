@@ -11,6 +11,10 @@
 
     <!-- Bootstrap + Dorang main styles -->
 	<link rel="stylesheet" href="assets/css/dorang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="dark-theme">
@@ -24,9 +28,18 @@
                 <li class="nav-item"><a href="{{$item['link']}}" class="nav-link">{{$item['text']}}</a></li>             
             @endforeach
         @endif
-            <li class="nav-item"><a href="#" class="nav-link">Explore</a></li>
+
+
+            <!-- <li class="nav-item"><a href="/registration" class="nav-link">Registration</a></li> -->
+            <li class="nav-item"><a href="{{route('registration')}}" class="nav-link">Registration</a></li>
+
+
             <li class="nav-item"><a href="#" class="nav-link"><img src="assets/imgs/placeholder.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, weber Landing page"></a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Journal</a></li>
+            
+            
+            <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+
+
             <li class="nav-item search">
                 <a href="javascript:void(0)" class="nav-link search-toggle"><i class="ti-search"></i> Search</a>
                 <div class="search-wrapper">
@@ -52,14 +65,22 @@
     <header class="header">
         <div class="overlay"></div>
         <div class="header-content">
-            <h1 class="header-title">What Happens Tomorrow?</h1>
-            @if($phone)
+
+            @if(auth()?->user()->name)            
+                <span>
+                    <h1 class="header-title">Hello, {{auth()?->user()->name}}</h1>                    
+                </span>
+            @endif
+
+
+            @if(!empty($phone))
                 <span>                    
                     Call : {{$phone}}
                 </span>
-                @endif
-            <p class="header-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt.</p>
+            @endif
+
+           
+            <p class="header-subtitle"></p>
 
             <button class="btn btn-theme-color modal-toggle"><i class="ti-control-play text-danger"></i> Watch Video</button>
 
@@ -118,6 +139,7 @@
 
     <!-- Dorang js -->
     <script src="assets/js/dorang.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
 </body>
 </html>

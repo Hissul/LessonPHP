@@ -1,6 +1,8 @@
 @extends('base')
 
-@section('title' , 'My site');
+@section('title' , 'My site')
+
+@sectin ('about', 'About us')
 
 @section('content');
 <!-- page container -->
