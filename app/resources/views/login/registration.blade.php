@@ -34,7 +34,12 @@
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>     
+            </div>    
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Repeat Password</label>
+                <input type="repeat_password" name="repeat_password" class="form-control" id="exampleInputPassword1" placeholder="Repeat Password">
+            </div>  
               
             <button type="submit" class="btn btn-primary">Submit</button>
 

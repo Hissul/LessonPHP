@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return view('about', ['phone' => config('top.phone')]);
-})->middleware('auth');
+})->name('about');
 
 
 Route::get('/registration', [RegistrationController::class, 'index'])->name('registration');
