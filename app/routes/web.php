@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ResetController;
 
 
 Route::get('/', function () {
@@ -26,3 +27,9 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::post('/login', 
     [LoginController::class, 'post'])->name('login.post');
+
+
+Route::get('/reset', [ResetController::class, 'index'])->name('reset');
+
+Route::post('/reset', 
+    [ResetController::class, 'post'])->name('reset.post');
