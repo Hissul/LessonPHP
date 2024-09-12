@@ -5,28 +5,23 @@ return[
     'menu' => [
         [
             "link" => "/",
-            "text" => "Main",
-            "current" => false
+            "text" => "Main"            
         ],
         [
             "link" => "/about",
-            "text" => "About",
-            "current" => false
+            "text" => "About"
         ],
         [
             "link" => "/registration",
-            "text" => "Registration",
-            "current" => false
+            "text" => "Registration"
         ],
         [
             "link" => "/login",
-            "text" => "Login",
-            "current" => false
+            "text" => "Login"
         ],
         [
             "link" => "/reset",
-            "text" => "Reset Password",
-            "current" => false
+            "text" => "Reset Password"
         ],
     ]
 ];
