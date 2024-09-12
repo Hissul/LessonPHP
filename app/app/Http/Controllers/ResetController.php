@@ -10,16 +10,11 @@ class ResetController extends Controller
 
     public function index()
     {
-        return view("login.reset");
+        return view("login.reset",['menu' => config('top.menu'), 'page' => 'Reset Password']);
     }
 
     public function post(Request $request)
     {
-       
-        
-       
-        
-
         $validated = $request->validate([            
             'email' => 'required|email'            
         ]);

@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view("login.login");
+        return view("login.login",['menu' => config('top.menu'), 'page' => 'Login']);
     }
 
     public function post(Request $request)

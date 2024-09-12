@@ -7,12 +7,20 @@ use App\Http\Controllers\ResetController;
 
 
 Route::get('/', function () {
-    return view('main', ['phone' => config('top.phone')]);
+    return view('main', [
+        'phone' => config('top.phone'),
+        'menu' => config('top.menu'),
+        'page' => 'Main'
+    ]);
 })->name('main');
 
 
 Route::get('/about', function () {
-    return view('about', ['phone' => config('top.phone')]);
+    return view('about', [
+        'phone' => config('top.phone'),
+        'menu' => config('top.menu'),  
+        'page' => 'About'        
+    ]);
 })->name('about');
 
 

@@ -27,33 +27,26 @@
 
             @if(isset($menu))
                 @foreach($menu as $item)
-                    <li class="nav-item"><a href="{{$item['link']}}" class="nav-link">{{$item['text']}}</a></li>             
             
-                    @if($item['current'])
-                        <span class="sr-only">(current)</span>
+                    @if($page == $item['text'])
+                    
+                        <li class="nav-item"><a href="{{$item['link']}}" class="nav-link" style="color:aquamarine;text-decoration:underline;">{{$item['text']}}</a></li>             
+                                                
+                    @else
+                    
+                        <li class="nav-item"><a href="{{$item['link']}}" class="nav-link" style="color: white;text-decoration:none;">{{$item['text']}}</a></li>             
+                        
                     @endif
 
                 @endforeach
             @endif
 
-
-            <li class="nav-item"><a href="{{route('registration')}}" class="nav-link">Registration</a></li>
-
-            <li class="nav-item"><a href="{{route('reset')}}" class="nav-link">Reset Pasword</a></li>
-            
-            <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
-
-
-            <li class="nav-item search">
-                <a href="javascript:void(0)" class="nav-link search-toggle"><i class="ti-search"></i> Search</a>
-                <div class="search-wrapper">
-                    <form>
-                        <input type="search" class="form-control" name="" placeholder="hit enter to search">
-                    </form>
-                </div>
-            </li>            
+           
         </ul>
-    </nav><!-- end of page navbar -->
+    </nav>
+    <!-- end of page navbar -->
+
+
 
     <div class="theme-selector">
         <a href="javascript:void(0)" class="spinner">
@@ -65,13 +58,19 @@
         </div>
     </div>  
 
+ 
+
     <!-- page header -->
     <header class="header">
         <div class="overlay"></div>
         <div class="header-content">
 
+        <div>
+            @yield('content', '')
+        </div>
+
             @if(!empty($phone))
-                <span>                    
+                <span style="font-size:50px;">                    
                     Call : {{$phone}}
                 </span>
             @endif
@@ -80,9 +79,7 @@
     </header><!-- end of page header -->
 
 
-    <div>
-        @yield('content', '')
-    </div>
+ 
 
     <!--footer & pre footer -->
     <div class="contact-section">

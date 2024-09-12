@@ -14,7 +14,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('login.registration');
+        return view('login.registration',['menu' => config('top.menu'), 'page' => 'Registration']);      
     }
 
   
