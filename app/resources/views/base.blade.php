@@ -66,11 +66,7 @@
         <div class="overlay"></div>
         <div class="header-content">
 
-            @if(auth()?->user()->name)            
-                <span>
-                    <h1 class="header-title">Hello, {{auth()?->user()->name}}</h1>                    
-                </span>
-            @endif
+        
 
 
             @if(!empty($phone))

@@ -66,10 +66,19 @@ php artisan  - в контейнере ( создаем новый контро�
 php artisan make:controller - создаем новый контролер
 
 
-psql -Udb_user app - захоодим в базу (в терминале)
+psql -U db_user app - захоодим в базу (в терминале)
 
+composer require orchid/platform - в контейнере - загрузка доп. пакетов
 
+php artisan orchid:install - доустановка, после команды выше
 
+php artisan orchid:admin -создаем админа (name:admin / password: admin / email : admin@admin.com)
+
+composer require orchid/crud - доп. библиотека для orchid (в контейнере)
+
+php artisan make:model Post --migration - создаем модель
+
+php artisan orchid:resource PostResource- создаем ресурс
 
 
 
