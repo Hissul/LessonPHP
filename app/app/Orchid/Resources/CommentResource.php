@@ -31,8 +31,8 @@ class CommentResource extends Resource
         return [   
             Input::make('post_id')->title('Post')->type('number'),         
             Quill::make('text')->title('Text')->rows(5),
-            Select::make('like')->title('Like')->options(array_combine(range(1, 10), range(1,10))),
-            Select::make('dislike')->title('Dislike')->options(array_combine(range(1, 10), range(1,10)))
+            Select::make('like')->title('Like')->options(array_combine(range(0, 10), range(0,10))),
+            Select::make('dislike')->title('Dislike')->options(array_combine(range(0, 10), range(0,10)))
         ];
     }
 
@@ -76,7 +76,21 @@ class CommentResource extends Resource
      */
     public function legend(): array
     {
-        return [];
+        return [
+            Sight::make('id', 'Id'),
+            Sight::make('created_at', 'Created')->render(function($post){
+                return $post->created_at->format('Y m d H:i');
+            }),
+            Sight::make('updated_at', 'Updated')->render(function($post){
+                return $post->updated_at->format('Y m d H:i');
+            }),
+            Sight::make('post_id', 'Post'),
+            Sight::make('text', 'Text')->render(function($post){
+                return $post->text;
+            }),
+            Sight::make('like', 'Like'),
+            Sight::make('dislike', 'Dislike')
+        ];
     }
 
     /**
@@ -93,7 +107,7 @@ class CommentResource extends Resource
     {
         $model->user_id = auth()->user()->id;        
 
-        parent::save($request, $model);
+        parent::save($request, $model);        
     }
 
 }
