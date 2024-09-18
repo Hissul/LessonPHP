@@ -80,6 +80,17 @@ php artisan make:model Post --migration - создаем модель
 
 php artisan orchid:resource PostResource- создаем ресурс
 
+php artisan install:api - дом библиотека ( + методы в User... createToken)
+
+
+
+
+sudo chown student: -R frontend/ - меняем влядельца
+ls -la frontend/
+mv my-app/* .
+mv my-app/.* .
+rmdir my-app/
+
 
 
 1  sudo docker run hello-world
