@@ -66,6 +66,8 @@ php artisan  - в контейнере ( создаем новый контро�
 php artisan make:controller - создаем новый контролер
 
 
+
+
 psql -U db_user app - захоодим в базу (в терминале)
 
 composer require orchid/platform - в контейнере - загрузка доп. пакетов
@@ -79,6 +81,11 @@ composer require orchid/crud - доп. библиотека для orchid (в к
 php artisan make:model Post --migration - создаем модель
 
 php artisan orchid:resource PostResource- создаем ресурс
+
+
+
+
+
 
 
 

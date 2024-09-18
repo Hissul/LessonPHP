@@ -7,18 +7,19 @@ use Orchid\Screen\TD;
 
 use Orchid\Crud\ResourceRequest;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Sight;
 
-class PostResource extends Resource
+class CommentResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\Comment::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -27,9 +28,11 @@ class PostResource extends Resource
      */
     public function fields(): array
     {
-        return [
+        return [   
+            Input::make('post_id')->title('Post')->type('number'),         
             Quill::make('text')->title('Text')->rows(5),
-            Select::make('mark')->title('Mark')->options(array_combine(range(1, 10), range(1,10)))
+            Select::make('like')->title('Like')->options(array_combine(range(1, 10), range(1,10))),
+            Select::make('dislike')->title('Dislike')->options(array_combine(range(1, 10), range(1,10)))
         ];
     }
 
@@ -52,13 +55,17 @@ class PostResource extends Resource
                 ->render(function ($model) {
                     return $model->updated_at->toDateTimeString();
                 }),
+            
+            TD::make('post_id', 'Post'),
+            
+            TD::make('text', 'Text')
+                ->render(function($post){
+                    return strip_tags($post->text);
+                }),
 
-            TD::make('text', 'Text')->render(function($post){
-                return strip_tags($post->text);
-            }),
+            TD::make('like', 'Like'),
 
-            TD::make('mark', 'Mark'),
-
+            TD::make('dislike', 'Dislike'),
         ];
     }
 
@@ -69,19 +76,7 @@ class PostResource extends Resource
      */
     public function legend(): array
     {
-        return [
-            Sight::make('id', 'Id'),
-            Sight::make('created_at', 'Created')->render(function($post){
-                return $post->created_at->format('Y m d H:i');
-            }),
-            Sight::make('updated_at', 'Updated')->render(function($post){
-                return $post->updated_at->format('Y m d H:i');
-            }),
-            Sight::make('text', 'Text')->render(function($post){
-                return $post->text;
-            }),
-            Sight::make('mark', 'Mark')
-        ];
+        return [];
     }
 
     /**
@@ -96,7 +91,7 @@ class PostResource extends Resource
 
     public function save(ResourceRequest $request, Model $model): void
     {
-        $model->user_id = auth()->user()->id;
+        $model->user_id = auth()->user()->id;        
 
         parent::save($request, $model);
     }
