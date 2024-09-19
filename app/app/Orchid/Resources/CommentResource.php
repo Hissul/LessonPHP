@@ -31,11 +31,8 @@ class CommentResource extends Resource
      */
     public function fields(): array
     {
-        $arr = collect(Post::all()->toArray())->only(['id', 'text']);
-        // print_r(Post::all()->toArray());
-
         return [   
-            Select::make('post_id')->title('Post')->fromModel(Post::class,'text'),         
+            Select::make('post_id')->title('Post')->fromModel(Post::class,'title'),         
             Quill::make('text')->title('Text')->rows(5),
             Select::make('like')->title('Like')->options(array_combine(range(0, 10), range(0,10))),
             Select::make('dislike')->title('Dislike')->options(array_combine(range(0, 10), range(0,10)))
@@ -62,7 +59,7 @@ class CommentResource extends Resource
                     return $model->updated_at->toDateTimeString();
                 }),
             
-            TD::make('post_id', 'Post'),
+            TD::make('post_id', 'Post Id'),
             
             TD::make('text', 'Text')
                 ->render(function($post){
@@ -90,7 +87,7 @@ class CommentResource extends Resource
             Sight::make('updated_at', 'Updated')->render(function($post){
                 return $post->updated_at->format('Y m d H:i');
             }),
-            Sight::make('post_id', 'Post'),
+            Sight::make('post_id', 'Post Id'),
             Sight::make('text', 'Text')->render(function($post){
                 return $post->text;
             }),

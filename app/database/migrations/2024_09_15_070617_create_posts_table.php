@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
+            $table->text('title');
             $table->text('text');
             $table->integer('mark');
 

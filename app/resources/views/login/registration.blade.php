@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title' , 'Regictration')
+@section('title' , 'Registration')
 
 @section('content')
     <div>

@@ -7,6 +7,7 @@ use Orchid\Screen\TD;
 
 use Orchid\Crud\ResourceRequest;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Sight;
@@ -28,6 +29,7 @@ class PostResource extends Resource
     public function fields(): array
     {
         return [
+            Input::make('title')->title('Title'),
             Quill::make('text')->title('Text')->rows(5),
             Select::make('mark')->title('Mark')->options(array_combine(range(1, 10), range(1,10)))
         ];
@@ -53,6 +55,8 @@ class PostResource extends Resource
                     return $model->updated_at->toDateTimeString();
                 }),
 
+            TD::make('title', 'Title'),
+
             TD::make('text', 'Text')->render(function($post){
                 return strip_tags($post->text);
             }),
@@ -77,6 +81,7 @@ class PostResource extends Resource
             Sight::make('updated_at', 'Updated')->render(function($post){
                 return $post->updated_at->format('Y m d H:i');
             }),
+            Sight::make('title', 'Title'),
             Sight::make('text', 'Text')->render(function($post){
                 return $post->text;
             }),
