@@ -45,5 +45,17 @@ services:
     ports:
       - "8082:3000"
 
+  cron:
+    container_name: lesson_20240720_cron
+    build:
+      context: .
+      dockerfile: .docker/app/Dockerfile.cron
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    env_file:
+      - ./app/.env
+
+
 volumes:
   db_data:  
