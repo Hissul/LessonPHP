@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with Dorang landing page.">
     <meta name="author" content="Devcrud">
+
     <title>@yield('title', 'Default title')</title>
+
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
 
@@ -44,6 +46,8 @@
     </nav>
     <!-- end of page navbar -->
 
+
+
     <div class="theme-selector">
         <a href="javascript:void(0)" class="spinner">
             <i class="ti-paint-bucket"></i>
@@ -54,56 +58,34 @@
         </div>
     </div>  
 
+ 
+
     <!-- page header -->
     <header class="header">
         <div class="overlay"></div>
         <div class="header-content">
 
-        
-
+        <div>
+            @yield('content', '')
+        </div>
 
             @if(!empty($phone))
-                <span>                    
+                <span style="font-size:50px;">                    
                     Call : {{$phone}}
                 </span>
             @endif
 
-           
-            <p class="header-subtitle"></p>
-
-            <button class="btn btn-theme-color modal-toggle"><i class="ti-control-play text-danger"></i> Watch Video</button>
-
         </div>
     </header><!-- end of page header -->
 
-    <!-- modal -->
-    <div class="modalBox">
-        <div class="modalBox-body">
-            <iframe width="100%" height="450px" class="border-0" 
-            src="https://www.youtube.com/embed/tgbNyZ7vqY?controls=0">
-            </iframe>
-        </div>          
-    </div><!-- end of modal -->
 
-    <div>
-        @yield('content', '')
-    </div>
+ 
 
     <!--footer & pre footer -->
     <div class="contact-section">
         <div class="overlay"></div>
         <!-- container -->
-        <div class="container">
-            <div class="col-md-10 col-lg-8 m-auto">
-                <h6 class="title mb-2">Contact Us</h6>
-                <p class="mb-5">Feel Free To Drop Us A Line.</p>
-                <form action="" class="form-group">
-                    <input type="text" size="50" class="form-control" placeholder="Your Name" required>
-                    <input type="email" class="form-control" placeholder="Enter Email"requried>
-                    <textarea name="comment" id="comment" rows="6"   class="form-control" placeholder="Write Something"></textarea>
-                    <input type="submit" value="Send Message" class="form-control">
-                </form>
-            </div>
+        <div class="container">            
 
             <!-- footer -->
             <footer class="footer">
