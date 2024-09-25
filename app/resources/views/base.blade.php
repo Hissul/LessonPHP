@@ -23,33 +23,26 @@
     <nav class="page-navbar" data-spy="affix" data-offset-top="10">
         <ul class="nav-navbar container">
 
-        @if(isset($menu))
-            @foreach($menu as $item)
-                <li class="nav-item"><a href="{{$item['link']}}" class="nav-link">{{$item['text']}}</a></li>             
-            @endforeach
-        @endif
-
-
-            <!-- <li class="nav-item"><a href="/registration" class="nav-link">Registration</a></li> -->
-            <li class="nav-item"><a href="{{route('registration')}}" class="nav-link">Registration</a></li>
-
-
-            <li class="nav-item"><a href="#" class="nav-link"><img src="assets/imgs/placeholder.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, weber Landing page"></a></li>
+            @if(isset($menu))
+                @foreach($menu as $item)
             
-            
-            <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+                    @if($page == $item['text'])
+                    
+                        <li class="nav-item"><a href="{{$item['link']}}" class="nav-link" style="color:aquamarine;text-decoration:underline;">{{$item['text']}}</a></li>             
+                                                
+                    @else
+                    
+                        <li class="nav-item"><a href="{{$item['link']}}" class="nav-link" style="color: white;text-decoration:none;">{{$item['text']}}</a></li>             
+                        
+                    @endif
 
+                @endforeach
+            @endif
 
-            <li class="nav-item search">
-                <a href="javascript:void(0)" class="nav-link search-toggle"><i class="ti-search"></i> Search</a>
-                <div class="search-wrapper">
-                    <form>
-                        <input type="search" class="form-control" name="" placeholder="hit enter to search">
-                    </form>
-                </div>
-            </li>            
+           
         </ul>
-    </nav><!-- end of page navbar -->
+    </nav>
+    <!-- end of page navbar -->
 
     <div class="theme-selector">
         <a href="javascript:void(0)" class="spinner">
