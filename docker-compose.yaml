@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   app:
-    container_name: lesson_20240720_app
+    container_name: lesson_new_app
     build:
       context: .
       dockerfile: .docker/app/Dockerfile
@@ -13,7 +13,7 @@ services:
       - ./app/.env
 
   webserver:
-    container_name: lesson_20240720_webserver
+    container_name: lesson_new_webserver
     build:
       context: .
       dockerfile: .docker/webserver/Dockerfile
@@ -24,7 +24,7 @@ services:
     - "8080:80"
 
   db:
-    container_name: lesson_20240720_db
+    container_name: lesson_new_db
     image: 'bitnami/postgresql:15.0.0'
     volumes:
       - 'db_data:/bitnami/postgresql'
@@ -34,7 +34,7 @@ services:
       POSTGRESQL_DATABASE: app
 
   npm:
-    container_name: lesson_20240720_npm
+    container_name: lesson_new_npm
     image: node:latest
     working_dir: /app
     volumes:
@@ -46,7 +46,7 @@ services:
       - "8082:3000"
 
   cron:
-    container_name: lesson_20240720_cron
+    container_name: lesson_new_cron
     build:
       context: .
       dockerfile: .docker/app/Dockerfile.cron
@@ -57,7 +57,7 @@ services:
       - ./app/.env
 
   mail:
-    container_name: lesson_20240720_mail
+    container_name: lesson_new_mail
     image: eaudeweb/mailtrap
     ports:
       - "8090:80"

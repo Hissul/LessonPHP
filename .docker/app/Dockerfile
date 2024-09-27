@@ -12,7 +12,7 @@ RUN useradd -g $DOCKER_GUID -u $DOCKER_ID --create-home docker
 
 COPY .docker/app/docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN apt-get update && apt-get install -y libpq-dev git
+RUN apt-get update && apt-get install -y libpq-dev zip
 
 RUN docker-php-ext-configure pdo_pgsql && docker-php-ext-install pdo_pgsql
 
