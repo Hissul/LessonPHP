@@ -23,5 +23,9 @@ return[
             "link" => "/reset",
             "text" => "Reset Password"
         ],
+        [
+            "link" => "/feedback",
+            "text" => "Feedback"
+        ],
     ]
 ];

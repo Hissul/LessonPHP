@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
@@ -47,3 +48,10 @@ Route::get('/reset', [ResetController::class, 'index'])->name('reset');
 
 Route::post('/reset', 
     [ResetController::class, 'post'])->name('reset.post');
+
+
+
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback');
+
+Route::post('/feedback', 
+    [FeedbackController::class, 'post'])->name('feedback.post');
