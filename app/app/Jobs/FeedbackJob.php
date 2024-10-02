@@ -14,6 +14,7 @@ class FeedbackJob implements ShouldQueue
     use Queueable;
 
     private $email;
+    private $phone;
     private $text;
 
     /**
@@ -22,6 +23,7 @@ class FeedbackJob implements ShouldQueue
     public function __construct(string $email, string $phone, string $text)
     {
         $this->email = $email;
+        $this->phone = $phone;
         $this->text = $text;
     }
 
@@ -30,6 +32,7 @@ class FeedbackJob implements ShouldQueue
      */
     public function handle(): void
     {
-        Artisan::call('app:feedback-send-email', ['email' => $this->email, 'text' => $this->text]);
+        Artisan::call('app:feedback-send-email', 
+            ['email' => $this->email, 'phone' => $this->phone, 'text' => $this->text]);
     }
 }
